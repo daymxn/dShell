@@ -3,4 +3,4 @@ project(dShell C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(dShell src/main.c)
+add_executable(dShell src/main.c src/util.c headers/util.h headers/pch.h)
