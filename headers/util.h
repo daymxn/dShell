@@ -69,6 +69,29 @@ void fatal(char* message);
  */
 void error(char* message);
 
+
+/**
+ * Crashes program, pushing a message to stderr.\n
+ *
+ * Internally this just calls error() and exit().\n
+ *
+ * Utilized for general-case crashing.
+ *
+ * @param message a message describing the issue.
+ */
+_Noreturn void crash(char* message);
+
+/**
+ * Crashes program, pushing a message AND errno to stderr.\n
+ *
+ * Internally this just calls fatal() and exit().\n
+ *
+ * Utilized for crashing relevant to syscalls, where perror is needed.
+ *
+ * @param message an additional message describing the issue.
+ */
+_Noreturn void fcrash(char* message);
+
 /**
  * Attaches a TAG and formatting to directory, and logs it to stdout.\n
  *
