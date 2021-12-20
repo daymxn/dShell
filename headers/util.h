@@ -101,7 +101,7 @@ void swap_pointers(void** ptr1, void** ptr2);
  * @param str1 - the first string to compare
  * @param str2 - the second string to compare
  */
-void are_equal(const char* str1, const char* str2);
+bool are_equal(const char* str1, const char* str2);
 
 /**
  * Reads from file until a NEWLINE is found, and returns the result as a string.\n
