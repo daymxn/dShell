@@ -3,6 +3,7 @@
 
 #include "pch.h"
 #include "string_builder.h"
+#include "util.h"
 
 /**
  * Various types that a command can be.\n
@@ -61,7 +62,9 @@ s_command* command();
 /**
  * Destructor for a s_command.\n
  *
- * Calls cleanup() on all properties, and sets integer values to 0.
+ * Calls cleanup() on all properties, and sets integer values to 0.\n
+ * NOTE: destructors function in a recursive manner, so children will also
+ * be destructed.
  *
  * @param this the s_command to use
  */
