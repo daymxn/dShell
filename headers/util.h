@@ -16,6 +16,7 @@
 #define NEWLINE "\n"
 
 #define V (void **)
+#define EXIT_STATUS int
 
 /**
  * Frees up a pointer and sets it to NULL.\n
