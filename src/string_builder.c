@@ -1,7 +1,7 @@
 #include "../headers/string_builder.h"
 
 s_string_builder* string_builder() {
-    s_string_builder* new_object = malloc(sizeof (s_string_builder));
+    s_string_builder* new_object = safe_malloc(sizeof (s_string_builder));
     new_object->length = 0;
     new_object->memory_size = 0;
     new_object->characters = NULL;
@@ -30,7 +30,7 @@ const char* make_string(s_string_builder* this){
     if(this == NULL) crash("make_string() was called with a NULL s_string_builder");
 
     add_character(this, 0);
-    char* str = malloc(this->length);
+    char* str = safe_malloc(this->length);
     memcpy(str, this->characters, this->length);
 
     de_string_builder(this);

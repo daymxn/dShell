@@ -45,6 +45,17 @@ void cleanup(void** obj);
 void cleanup_array(void** array);
 
 /**
+ * Safe alternative to malloc.\n
+ *
+ * Will check the return value of malloc and crash
+ * with a relevant errno message on failure.
+ *
+ * @param size - the size in bytes to allocate
+ * @return a pointer to the newly allocated memory
+ */
+void* safe_malloc(size_t size);
+
+/**
  * Will resize a memory region to size.\n
  *
  * Handles the calls to realloc, and error checking.

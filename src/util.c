@@ -30,11 +30,20 @@ void cleanup_array(void** array){
     }
 }
 
+void* safe_malloc(size_t size){
+    if(size < 0) crash("safe_malloc() called with negative size");
+
+    void* temp = malloc(size);
+
+    if(!temp) fcrash("Failed to allocate memory");
+    return temp;
+}
+
 void* expand_memory(void* current_memory, size_t size){
     if(size < 0) crash("expand_memory() called with negative size");
 
     void* temp = realloc(current_memory, size);
-    if(!temp) crash("Failed to expand memory");
+    if(!temp) fcrash("Failed to expand memory");
     return temp;
 }
 
