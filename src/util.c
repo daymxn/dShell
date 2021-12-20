@@ -61,6 +61,10 @@ _Noreturn void fcrash(char* message){
     exit(EXIT_FAILURE);
 }
 
+void warn(char* message){
+    fprintf(stderr, "%s[%s]:%s %s %s", BOLD_YELLOW, TAG, YELLOW, message, NEWLINE);
+}
+
 void error(char* message){
     fprintf(stderr, "%s[%s]:%s %s %s", BOLD_RED, TAG, DEFAULT_COLOR, message, NEWLINE);
 }

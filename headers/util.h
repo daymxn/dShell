@@ -7,6 +7,8 @@
  * We avoid functional macros. #NoSideEffectGang
  */
 #define BOLD_RED "\033[1;31m"
+#define YELLOW "\033[0;33m"
+#define BOLD_YELLOW "\033[1;33m"
 #define DEFAULT_COLOR "\033[0m"
 #define BOLD_CYAN "\033[1;36m"
 #define BLUE "\033[0;34m"
@@ -59,6 +61,15 @@ void* expand_memory(void* current_memory, size_t size);
  * @param message - an additional message describing the issue.
  */
 void fatal(char* message);
+
+/**
+ * Attaches a TAG and color formatting to message, and logs it to stderr.\n
+ *
+ * Primarily utilized for non fatal errors.
+ *
+ * @param message - a message describing the issue.
+ */
+void warn(char* message);
 
 /**
  * Attaches a TAG and color formatting to message, and logs it to stderr.\n
