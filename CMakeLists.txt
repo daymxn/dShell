@@ -3,4 +3,4 @@ project(dShell C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(dShell src/main.c src/util.c headers/util.h headers/pch.h src/string_builder.c headers/string_builder.h src/command.c headers/command.h)
+add_executable(dShell src/main.c src/util.c headers/util.h headers/pch.h src/string_builder.c headers/string_builder.h src/command.c headers/command.h src/tokenzier.c headers/tokenzier.h)
