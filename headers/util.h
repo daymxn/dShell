@@ -58,7 +58,7 @@ void* expand_memory(void* current_memory, size_t size);
  *
  * @param message - an additional message describing the issue.
  */
-void failure(char* message);
+void fatal(char* message);
 
 /**
  * Attaches a TAG and color formatting to message, and logs it to stderr.\n
