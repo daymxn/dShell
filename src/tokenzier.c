@@ -1,7 +1,7 @@
 #include "../headers/tokenzier.h"
 
 s_token_state* token_state(){
-    s_token_state* this = malloc(sizeof(s_token_state));
+    s_token_state* this = safe_malloc(sizeof(s_token_state));
     this->tokens = NULL;
     this->token_length = 0;
     this->current_command = command();
