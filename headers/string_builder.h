@@ -58,8 +58,10 @@ void add_character(s_string_builder* this, char character);
  *
  * Please note, that this method will automatically cleanup itself.
  * Internally, this method is very similar to the string_builder
- * destructor. The only difference is that characters is not freed,
- * and is returned.
+ * destructor. The only difference is that characters is copied
+ * to a new memory segment before being freed, and is returned.\n
+ *
+ * This method DOES add a null terminator to the end of the string.
  *
  * @param this the s_string_builder to use
  *
