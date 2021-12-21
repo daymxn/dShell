@@ -4,7 +4,7 @@ char* read_line(FILE* file){
     char* line = NULL;
     size_t buffer = 0;
 
-    if(getline(&line, &buffer, file)) fcrash("read_line() called with no newline");
+    if(getline(&line, &buffer, file) == -1) fcrash("read_line() called with no newline");
 
     return line;
 }
