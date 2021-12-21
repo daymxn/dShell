@@ -66,7 +66,7 @@ void parse_leftovers(s_command** commands);
  * Organizes an array of commands into a single tree.\n
  *
  * This is under the guise that execution flow follows
- * an In-Order Traversal via Depth-First Search.
+ * an Pre-Order Traversal via Depth-First Search.
  *
  * @param commands - an array of commands to process
  * @return pointer to a tree of s_command
