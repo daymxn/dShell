@@ -68,6 +68,8 @@ int condense_subshells(s_command** commands){
 }
 
 void parse_leftovers(s_command** commands) {
+    if(commands == NULL) crash("parse_leftovers() was called with a NULL s_command");
+
     int index = 1;
     s_command* current = commands[0];
     while(commands[index] != NULL){
