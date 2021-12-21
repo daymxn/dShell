@@ -181,7 +181,7 @@ Hello World!
 
 ## License
 
-[Apache 2.0](https://github.com/daymxn/dShell/blob/main/LICENSE)
+[Apache 2.0](https://github.com/daymxn/dShell/blob/master/LICENSE)
 
 
 ## Authors
