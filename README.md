@@ -12,7 +12,7 @@
 
 Another toy shell that serves no true purpose beyond being an engineer's µarch baby.
 
-Learn more about my journey in developing the initial release of this shell <a href="daymxn.com">on my website.</a>
+Learn more about my journey in developing the initial release of this shell <a href="https://daymxn.com">on my website.</a>
 *to be released
 ## Usage/Examples
 
