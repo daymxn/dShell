@@ -1,6 +1,6 @@
 #include <stdio.h>
+#include "../headers/lifecycle.h"
 
-int main() {
-    printf("Hello, World!\n");
-    return 0;
+int main(int argc, char **argv) {
+    lifecycle();
 }
