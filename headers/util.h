@@ -57,6 +57,49 @@ void cleanup_array(void** array);
 void* safe_malloc(size_t size);
 
 /**
+ * Safe alternative to dup.\n
+ *
+ * Will check the return value of dup and crash
+ * with a relevant errno message on failure.
+ *
+ * @param file_desc - the file descriptor to duplicate
+ * @return the newly created file descriptor
+ */
+int safe_dup(int file_desc);
+
+/**
+ * Safe alternative to dup2.\n
+ *
+ * Will check the return value of dup2 and crash
+ * with a relevant errno message on failure.
+ *
+ * @param file_desc - the src file descriptor to duplicate
+ * @param file_desc_2 - the file descriptor to duplicate against
+ * @return the newly created file descriptor
+ */
+int safe_dup2(int file_desc, int file_desc_2);
+
+/**
+ * Safe alternative to close.\n
+ *
+ * Will check the return value of close and crash
+ * with a relevant errno message on failure.
+ *
+ * @param file_desc - the file descriptor to close
+ */
+void safe_close(int file_desc);
+
+/**
+ * Safe alternative to fclose.\n
+ *
+ * Will check the return value of fclose and crash
+ * with a relevant errno message on failure.
+ *
+ * @param file_stream - the file stream to close
+ */
+void safe_fclose(FILE* file_stream);
+
+/**
  * Will resize a memory region to size.\n
  *
  * Handles the calls to realloc, and error checking.

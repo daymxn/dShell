@@ -39,6 +39,29 @@ void* safe_malloc(size_t size){
     return temp;
 }
 
+int safe_dup(int file_desc){
+    int fd = dup(file_desc);
+    if(fd == -1) fcrash("Failed to duplicate file descriptor");
+
+    return fd;
+}
+
+int safe_dup2(int file_desc, int file_desc_2){
+    int fd = dup2(file_desc, file_desc_2);
+    if(fd == -1) fcrash("Failed to duplicate file descriptor");
+
+    return fd;
+}
+
+void safe_close(int file_desc){
+    if(close(file_desc)) fcrash("Failed to close file descriptor");
+}
+
+void safe_fclose(FILE* file_stream){
+    if(fclose(file_stream)) fcrash("Failed to close file stream");
+}
+
+
 void* expand_memory(void* current_memory, size_t size){
     if(size < 0) crash("expand_memory() called with negative size");
 
