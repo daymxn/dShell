@@ -53,6 +53,16 @@ void apply_children(s_command** commands, int index);
 int condense_subshells(s_command** commands);
 
 /**
+ * Recursively finds NOT symbols and processes them.\n
+ *
+ * Will assign the next element to the NOT left child. The right child
+ * of NOT will be NULL.
+ *
+ * @param commands - an array of commands to loop through
+ */
+void parse_not(s_command** commands);
+
+/**
  * Assigns all remaining elements as left children to one another.\n
  *
  * As such, a left over: 1->2 will become a tree where 2 is the left child of 1.
@@ -61,6 +71,16 @@ int condense_subshells(s_command** commands);
  * @param commands - an array of commands to loop through
  */
 void parse_leftovers(s_command** commands);
+
+/**
+ * Recursively finds logical symbols and processes them.\n
+ *
+ * Logical symbols are processed from left-right, with apply_children()
+ * being called on each occurrence.
+ *
+ * @param commands - an array of commands to loop through
+ */
+void parse_logicals(s_command** commands);
 
 /**
  * Organizes an array of commands into a single tree.\n
