@@ -68,6 +68,8 @@ int condense_subshells(s_command** commands){
 }
 
 void parse_leftovers(s_command** commands) {
+    if(commands == NULL) crash("parse_leftovers() was called with a NULL s_command");
+
     int index = 1;
     s_command* current = commands[0];
     while(commands[index] != NULL){
@@ -78,14 +80,53 @@ void parse_leftovers(s_command** commands) {
     }
 }
 
+void parse_logicals(s_command** commands){
+    if(commands == NULL) crash("parse_logicals() was called with a NULL s_command");
+
+    int index = 0;
+    s_command* current = commands[index];
+    while(current != NULL){
+        switch(current->type){
+            case AND:
+            case OR:
+                apply_children(commands, index);
+                index -= 1;
+            default:
+                break;
+        }
+        index += 1;
+        current = commands[index];
+    }
+}
+
+void parse_not(s_command** commands){
+    if(commands == NULL) crash("parse_not() was called with a NULL s_command");
+
+    int index = 1;
+    s_command* current = commands[0];
+    while(commands[index] != NULL){
+        if(current->type != NOT){
+            current = commands[index];
+            index += 1;
+            continue;
+        }
+        current->left = commands[index];
+        commands[index] = NULL;
+        shift_to_left(&commands[index], 1);
+        current = commands[index];
+        index += 1;
+    }
+}
+
 s_command* parse(s_command** commands){
     condense_subshells(commands);
+    parse_not(commands);
 
     parse_type(commands, PIPE);
     parse_type(commands, REDIRECT_TO);
     parse_type(commands, REDIRECT_TO_OVERWRITE);
+    parse_logicals(commands);
     parse_type(commands, ENDCOMMAND);
-
     parse_leftovers(commands);
 
     return commands[0];
