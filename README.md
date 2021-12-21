@@ -2,6 +2,12 @@
 <img src="https://i.imgur.com/xhSqaLL.png" />
 </p>
 
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/daymxn/dShell?style=flat-square)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/daymxn/dShell/master?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/daymxn/dShell?style=flat-square)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/daymxn/dShell?style=flat-square)
+![GitHub](https://img.shields.io/github/license/daymxn/dShell?style=flat-square)
+
 # dShell
 
 Another toy shell that serves no true purpose beyond being an engineer's µarch baby.
