@@ -115,8 +115,6 @@ s_command** token_state_complete(s_token_state* this){
 
     s_command** tokens = this->tokens;
 
-    cleanup(V &this->current_command);
-    cleanup(V &this->current_builder);
     cleanup(V &this);
 
     return tokens;
@@ -176,7 +174,9 @@ s_command** tokenizer(const char* line){
                 add_current_to_tokens(state);
                 continue;
             case ' ':
-                finish_builder(state);
+                if(QUOTED){
+                    append_character(state, current_character);
+                }else finish_builder(state);
                 break;
             default:
                 if(!QUOTED && is_character_special(current_character)){
